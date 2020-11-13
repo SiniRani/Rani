@@ -53,6 +53,7 @@
   }
 
   ul {
+      list-style: none;
       padding-left: 0;
   }
 
@@ -101,11 +102,21 @@
   /* Navbar */
   #navbar {
       display: flex;
+      width: 100%;
+      display: flex;
       justify-content: space-between;
-      background-color: var(--color-navy);
       align-items: center;
       color: var(--color-white);
       padding: 16px;
+      /* background-color: transparent; */
+      background-color: var(--color-navy);
+      transition: all var(--animation-duration) ease-in-out;
+      z-index: 1;
+  }
+
+  #navbar.navbar--dark {
+      background-color: var(--color-navy);
+      padding: 4px;
   }
 
   .navbar__menu {
@@ -121,21 +132,30 @@
       padding: 8px 12px;
       margin: 0 4px;
       cursor: pointer;
+      border: 1px solid transparent;
       border-radius: var(--size-border-radius);
   }
 
-  .navbar__menu__item.active {
-      border: 1px solid var(--color-white);
+  .navbar__menu__item:hover {
+      border-color: var(--color-white);
+      border-radius: var(--size-border-radius);
+      background-color: var(--color-dark-sky);
   }
 
-  .navbar__menu__item:hover {
-      background-color: var(--color-dark-pink);
+  .navbar__toggle-btn {
+      position: absolute;
+      top: 24px;
+      right: 32px;
+      font-size: 24px;
+      color: var(--color-white);
+      display: none;
   }
 
   /* HOME */
   #home {
       background: url('imgs/sky_01.jpg') center/cover no-repeat;
       padding: 40px;
+      padding-top: 120px;
       text-align: center;
   }
 
@@ -143,7 +163,7 @@
       width: 250px;
       height: 250px;
       border-radius: 50%;
-      border: 2px solid var(--color-white);
+      border: 2px solid var(--color-light-white);
   }
 
   .home__title,
@@ -159,6 +179,10 @@
       padding: 8px 12px;
       border: 2px solid var(--color-white);
       border-radius: var(--size-border-radius);
+  }
+
+  .home__contact:hover {
+      background-color: var(--color-dark-white);
   }
 
   /* Section */
@@ -259,12 +283,13 @@
   }
 
   .skill {
-      margin-bottom: 32px;
+      margin-bottom: 8px;
   }
 
   .skill__description {
       display: flex;
       justify-content: space-between;
+      padding: 20px;
   }
 
   .skill__bar {
@@ -478,7 +503,7 @@
       bottom: 50px;
       width: 70px;
       height: 70px;
-      background-color: var(--color-pink);
+      background-color: var(--color-dark-sky);
       color: var(--color-white);
       border-radius: 50%;
       opacity: 0;
